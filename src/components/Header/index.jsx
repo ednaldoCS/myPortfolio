@@ -7,8 +7,8 @@ function Header(){
 
 	return (
 		<header>
-			<nav className="navbar navbar-expand-md navbar-dark ">
-				<Link to='/' className='navbar-brand'>DevEdnaldo</Link>
+			<nav className="navbar navbar-expand-md  ">
+				<Link to='/' className='navbar-brand'>Ednaldo.Front</Link>
 			  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 			    <span className="navbar-toggler-icon"></span>
 			  </button>
@@ -17,9 +17,9 @@ function Header(){
 			      <li className="nav-item ">
 			        <Link to='/' className='nav-link' >Home</Link>
 			      </li>
-			      <li className="nav-item">
+			      {/* <li className="nav-item">
 			        <Link to='/about-me' className='nav-link' >Sobre mim</Link>
-			      </li>
+			      </li> */}
 			      <li className="nav-item" >
 			       <Link to='/portfolio' className='nav-link'>Portfolio</Link>
 			      </li>

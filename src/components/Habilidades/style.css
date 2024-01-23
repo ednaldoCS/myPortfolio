@@ -1,20 +1,26 @@
-.habilidades h1{
-	width: 90%;
+.habilidades{
+	display: flex;
 	margin: 0 auto;
-	color: white;
-	margin-bottom: 15px;
+
+	align-items: center;
 }
+
+.habilidades h1{
+	font-size: 1.5rem;
+	flex: .4;
+}
+
 
 .habilidade_container{
 	display: flex;
-	width: 90%;
-	justify-content: ;
-	margin: 0 auto;
+	flex-direction: row;
+	margin-left: 2rem;
+	flex: 1;
 }
 
 
 .habilidade_item{
-	flex: 1;
+	max-width: 5rem;
 	background: white;
 	display: flex;
 	flex-direction: column;
@@ -22,6 +28,10 @@
 	align-items: center;
 	padding: 10px;
 	margin: 5px;
+}
+
+.habilidade_item img{
+	width: 100%;
 }
 
 

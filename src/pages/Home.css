@@ -6,29 +6,28 @@
 }
 
 .img{
-	width: 45%;
+	width: 25%;
+	display: grid;
+	place-items: center;
+
+	border:1px solid black;
+	border-radius: 40% 20% 35% 20%;
+	box-shadow: 0 0 15px 0 ;
 }
 .img img{
 	width: 100%;
+	margin: 0 auto;
+	border-radius: 35% 20% 35% 20% ;
 }
 
 .title{
-	color: rgba(202, 240, 248);
-	text-align: center;
+	color: rgb(56, 60, 61);
+	text-align: start;
 	margin-top: 50px;
 }
 
-.title h3{
-	font-size: 30px;
-}
-
-.title h3 .first__span{
-	color: darksalmon;
-	font-size: 20px;
-}
-.title h3 .second__span{
-	color: darksalmon;
-	animation: destaque 1s linear infinite;
+.title h1{
+	font-size: 3rem;
 }
 
 .icon__container{
@@ -57,12 +56,13 @@
 }
 
 
-@media(max-width: 600px){
+@media(max-width: 720px){
 	.home__container{
-		flex-direction: column;
+		flex-direction:column-reverse;
+		margin:1rem 2rem;
 	}
 	.img{
-		width: 100%;
+		width: 50%;
 		padding: 10px;
 	}
 	.title h1{

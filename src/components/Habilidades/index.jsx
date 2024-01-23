@@ -12,7 +12,7 @@ function Habilidades(){
 	return(
 		<div className='habilidades'>
 			<h1>
-				Habilidades
+				Top stacks
 				<span className='border_bottom_titles'></span>
 			</h1>
 			<div className='habilidade_container'>
@@ -20,35 +20,30 @@ function Habilidades(){
 					<div className='img_container'>
 						<img src={HtmlIcon} alt="liguagem icon"/>
 					</div>
-					<h2>HTML</h2>
 				</div>
 
 				<div className='habilidade_item'>
 					<div className='img_container'>
 						<img src={CssIcon}alt="liguagem icon"/>
 					</div>
-					<h2>CSS</h2>
 				</div>
 
 				<div className='habilidade_item'>
 					<div className='img_container'>
 						<img src={JsIcon} alt="liguagem icon"/>
 					</div>
-					<h2>JAVASCRIPT</h2>
 				</div>
 
 				<div className='habilidade_item'>
 					<div className='img_container'>
 						<img src={ReactIcon} alt="liguagem icon"/>
 					</div>
-					<h2>REACTJS</h2>
 				</div>
 
 				<div className='habilidade_item'>
 					<div className='img_container'>
 						<img src={GitIcon} alt="liguagem icon"/>
 					</div>
-					<h2>GITHUB</h2>
 				</div>
 	 		</div>
 		</div>

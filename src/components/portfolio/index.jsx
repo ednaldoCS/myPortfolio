@@ -1,5 +1,5 @@
 
-import React from 'react'
+import React, { useState } from 'react'
 import './style.css'
 
 
@@ -19,159 +19,156 @@ import ToDo from '../../assets/portfolioAssets/Captura de tela de 2022-01-23 00-
 import SpotifyClone from '../../assets/portfolioAssets/Captura de tela de 2022-01-23 00-48-12.png';
 import Finans from '../../assets/portfolioAssets/Captura de tela de 2022-01-23 00-34-35.png'
 
+const portfolioItems = [
+	{
+	  title: 'Checkout Page',
+	  altText: 'Checkout Page',
+	  description: `This user-friendly page ensures a seamless journey from cart to completion,
+		with a clean and intuitive interface. Enjoy a visually pleasing design that
+		prioritizes simplicity without compromising functionality. With responsive elements and thoughtful details,
+		this checkout page delivers a hassle-free process for a delightful customer experience.`,
+	  imgSrc: Checkout,
+	  demoLink: 'https://ednaldocs.github.io/checkoutPage/',
+	  stack: ['HTML', 'CSS', 'JavaScript', 'React', 'Redux']
+	},
+	{
+	  title: 'Edie Home Page',
+	  imgSrc: EdieHomePage,
+	  altText: 'EdieHomePage page',
+	  demoLink: 'https://ednaldocs.github.io/homepage/',
+	  description: 'A visually appealing home page for Edie, showcasing a clean and intuitive design.',
+	  stack: ['HTML', 'CSS', 'JavaScript', 'React']
+	},
+	{
+	  title: 'Error Page',
+	  imgSrc: ErrorPage,
+	  altText: 'Error page',
+	  demoLink: 'https://ednaldocs.github.io/erro-404/',
+	  description: 'An error page with a creative design, providing a user-friendly experience even in unexpected situations.',
+	  stack: ['HTML', 'CSS', 'JavaScript']
+	},
+	{
+	  title: 'Gallery',
+	  imgSrc: Galery,
+	  altText: 'Galeria page',
+	  demoLink: 'https://ednaldocs.github.io/my-gallery/',
+	  description: 'An interactive gallery page, designed to showcase images in an elegant and engaging manner.',
+	  stack: ['HTML', 'CSS', 'JavaScript']
+	},
+	{
+	  title: 'Interior Designer',
+	  imgSrc: InteriorDesign,
+	  altText: 'Interior Designer page',
+	  demoLink: 'https://ednaldocs.github.io/interior-consultant/',
+	  description: 'A portfolio page for interior design projects, featuring a stylish and functional layout.',
+	  stack: ['HTML', 'CSS', 'JavaScript', 'React']
+	},
+	{
+	  title: 'Designer Team',
+	  imgSrc: Myteam,
+	  altText: 'Myteam page',
+	  demoLink: 'https://ednaldocs.github.io/Myteam/',
+	  description: 'A collaborative platform for design teams, promoting effective communication and project management.',
+	  stack: ['HTML', 'CSS', 'JavaScript', 'React']
+	},
+	{
+	  title: 'Página de receitas',
+	  imgSrc: RecipePage,
+	  altText: 'Receitas page',
+	  demoLink: 'https://ednaldocs.github.io/recipe-blog/',
+	  description: 'A recipe blog page, beautifully designed to inspire and share culinary creations.',
+	  stack: ['HTML', 'CSS', 'JavaScript']
+	},
+	{
+	  title: 'Rick And Morth personagens infos',
+	  imgSrc: RickAndMorth,
+	  altText: 'RickAndMorth page',
+	  demoLink: 'https://ednaldocs.github.io/rickAndMortyApi/',
+	  description: 'An informative page about Rick and Morty characters, providing interesting details and insights.',
+	  stack: ['HTML', 'CSS', 'JavaScript', 'React']
+	},
+	{
+	  title: 'Random Quote motivacional',
+	  imgSrc: RandomQuote,
+	  altText: 'RandomQuote page',
+	  demoLink: 'https://ednaldocs.github.io/randomQuote/',
+	  description: 'A motivational quotes page, delivering daily inspiration with a sleek and modern design.',
+	  stack: ['HTML', 'CSS', 'JavaScript']
+	},
+	{
+	  title: 'Imagens Upload',
+	  imgSrc: ImageUpload,
+	  altText: 'Image Upload page',
+	  demoLink: 'https://ednaldocs.github.io/img-upload/',
+	  description: 'An image upload page, simplifying the process of sharing and managing images with user-friendly features.',
+	  stack: ['HTML', 'CSS', 'JavaScript', 'React']
+	},
+	{
+	  title: 'Genius Game',
+	  imgSrc: GeniusGame,
+	  altText: 'Genius Game page',
+	  demoLink: 'https://ednaldocs.github.io/geniusGame/',
+	  description: 'An interactive Genius Game, challenging users\' memory and reflexes in an engaging way.',
+	  stack: ['HTML', 'CSS', 'JavaScript']
+	},
+	{
+	  title: 'ToDo - lista de tarefas',
+	  imgSrc: ToDo,
+	  altText: 'ToDo page',
+	  demoLink: 'https://ednaldocs.github.io/todoapp/',
+	  description: 'A task management ToDo app, helping users stay organized and productive with a simple and effective interface.',
+	  stack: ['HTML', 'CSS', 'JavaScript', 'React']
+	},
+	{
+	  title: 'Clone Spotify',
+	  imgSrc: SpotifyClone,
+	  altText: 'SpotifyClone page',
+	  demoLink: 'https://ednaldocs.github.io/spotifyClone/',
+	  description: 'A Spotify clone page, replicating the music streaming experience with a responsive and visually appealing design.',
+	  stack: ['HTML', 'CSS', 'JavaScript', 'React']
+	},
+	{
+	  title: 'Finans',
+	  imgSrc: Finans,
+	  altText: 'Finans page',
+	  demoLink: 'https://ednaldocs.github.io/finans/',
+	  description: 'A financial management page, empowering users to take control of their finances with an intuitive and feature-rich interface.',
+	  stack: ['HTML', 'CSS', 'JavaScript', 'React']
+	}
+  ];
+  
 
 function Portfolio() {
+	const [stack, setStack]=useState('all')
 	return (
 		<div className='portfolio_container'>
-			<h1>Portfolio
-			<span className='border_bottom_titles'></span></h1>
+			<h1>Portfolio</h1>
 
+			<div className='filter'>
+				<h5>Filter by stack</h5>
+				<select onChange={(e)=>setStack(e.target.value)}>
+					<option value="HTML">HTML</option>
+					<option value="CSS">CSS</option>
+					<option value="JavaScript">JavaScript</option>
+					<option value="React">React</option>
+				</select>
+			</div>
 			<div className='portfolio_itens_container'>
 				{/*inicio portfolio item*/}
-				<div className='portfolio_item'>
-					<h3>Checkout page</h3>
-					<div className='portfolio_item--img'>
-						<img src={Checkout} alt="Checkout page"/>
-					</div>
-					<a href="https://ednaldocs.github.io/checkout-page/" target='_blank'>Demo</a>
-				</div>
-				{/*fim portfolio item*/}
-
-				{/*inicio portfolio item*/}
-				<div className='portfolio_item'>
-					<h3>Edie Home Page</h3>
-					<div className='portfolio_item--img'>
-						<img src={EdieHomePage} alt="EdieHomePage page"/>
-					</div>
-					<a href="https://ednaldocs.github.io/homepage/" target='_blank'>Demo</a>
-				</div>
-				{/*fim portfolio item*/}
-
-				{/*inicio portfolio item*/}
-				<div className='portfolio_item'>
-					<h3>Error Page</h3>
-					<div className='portfolio_item--img'>
-						<img src={ErrorPage} alt="Error page"/>
-					</div>
-					<a href="https://ednaldocs.github.io/erro-404/" target='_blank'>Demo</a>
-				</div>
-				{/*fim portfolio item*/}
-
-
-				{/*inicio portfolio item*/}
-				<div className='portfolio_item'>
-					<h3>Galery</h3>
-					<div className='portfolio_item--img'>
-						<img src={Galery} alt='Galeria page'/>
-					</div>
-					<a href="https://ednaldocs.github.io/my-gallery/" target='_blank'>Demo</a>
-				</div>
-				{/*fim portfolio item*/}
-
-				{/*inicio portfolio item*/}
-				<div className='portfolio_item'>
-					<h3>Interior Designer</h3>
-					<div className='portfolio_item--img'>
-						<img src={InteriorDesign} alt='Interior Designer page'/>
-					</div>
-					<a href="https://ednaldocs.github.io/interior-consultant/" target='_blank'>Demo</a>
-				</div>
-				{/*fim portfolio item*/}
-
-
-				{/*inicio portfolio item*/}
-				<div className='portfolio_item'>
-					<h3>Designer Team</h3>
-					<div className='portfolio_item--img'>
-						<img src={Myteam} alt='Myteam page'/>
-					</div>
-					<a href="https://ednaldocs.github.io/Myteam/" target='_blank'>Demo</a>
-				</div>
-				{/*fim portfolio item*/}
-
-				{/*inicio portfolio item*/}
-				<div className='portfolio_item'>
-					<h3>Página de receitas</h3>
-					<div className='portfolio_item--img'>
-						<img src={RecipePage} alt='receitas page'/>
-					</div>
-					<a href="https://ednaldocs.github.io/recipe-blog/" target='_blank'>Demo</a>
-				</div>
-				{/*fim portfolio item*/}
-
-				{/*inicio portfolio item*/}
-				<div className='portfolio_item'>
-					<h3>Rick And Morth personagens infos</h3>
-					<div className='portfolio_item--img'>
-						<img src={RickAndMorth} alt='RickAndMorth page'/>
-					</div>
-					<a href="https://ednaldocs.github.io/rickAndMortyApi/" target='_blank'>Demo</a>
-				</div>
-				{/*fim portfolio item*/}
-
-				{/*inicio portfolio item*/}
-				<div className='portfolio_item'>
-					<h3>Random Quote motivacional</h3>
-					<div className='portfolio_item--img'>
-						<img src={RandomQuote} alt='RandomQuote page'/>
-					</div>
-					<a href="https://ednaldocs.github.io/randomQuote/" target='_blank'>Demo</a>
-				</div>
-				{/*fim portfolio item*/}
-
-				{/*inicio portfolio item*/}
-				<div className='portfolio_item'>
-					<h3>Imagens Upload</h3>
-					<div className='portfolio_item--img'>
-						<img src={ImageUpload} alt='Image Upload page'/>
-					</div>
-					<a href="https://ednaldocs.github.io/img-upload/" target='_blank'>Demo</a>
-				</div>
-				{/*fim portfolio item*/}
-
-
-				{/*inicio portfolio item*/}
-				<div className='portfolio_item'>
-					<h3>Genius Game</h3>
-					<div className='portfolio_item--img'>
-						<img src={GeniusGame} alt='Genius Game page'/>
-					</div>
-					<a href="https://ednaldocs.github.io/geniusGame/" target='_blank'>Demo</a>
-				</div>
-				
-				{/*fim portfolio item*/}
-
-
-				{/*inicio portfolio item*/}
-				<div className='portfolio_item'>
-					<h3>ToDo - lista de tarefas</h3>
-					<div className='portfolio_item--img'>
-						<img src={ToDo} alt='ToDo page'/>
-					</div>
-					<a href="https://ednaldocs.github.io/todoapp/" target='_blank'>Demo</a>
-				</div>
-				{/*fim portfolio item*/}
-
-
-				{/*inicio portfolio item*/}
-				<div className='portfolio_item'>
-					<h3>Clone Spotify</h3>
-					<div className='portfolio_item--img'>
-						<img src={SpotifyClone} alt='SpotifyClone page'/>
-					</div>
-					<a href="https://ednaldocs.github.io/spotifyClone/" target='_blank'>Demo</a>
-				</div>
-				{/*fim portfolio item*/}
-
-				{/*inicio portfolio item*/}
-				<div className='portfolio_item'>
-					<h3>Finans</h3>
-					<div className='portfolio_item--img'>
-						<img src={Finans} alt='Finans page'/>
-					</div>
-					<a href="https://ednaldocs.github.io/finans/" target='_blank'>Demo</a>
-				</div>
-				{/*fim portfolio item*/}
+				{portfolioItems.filter((item)=>{
+					if(stack==='all') return true;
+					else if(item.stack.includes(stack)) return item;
+				}).map((item)=>(
+					<a href={item.demoLink} className='portfolio_item' target='_blank'>
+						<div className='portfolio_item--img'>
+							<img src={item.imgSrc} alt={item.altText}/>
+						</div>
+						<div>
+							<h3>{item.title}</h3>
+							<p>{item.description}</p>
+						</div>
+					</a>
+				))}
 
 				
 			</div>

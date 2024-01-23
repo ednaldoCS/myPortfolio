@@ -1,8 +1,18 @@
 header{
+	width: 90%;
+	margin: 0 auto;
 	display: flex;
 	justify-content: space-around;
 	padding: 20px;
 	align-items: center;
+
+	font-weight: bold;
+
+	border-bottom: 1px solid rgba(0, 0, 0, .4);
+
+	border-bottom-left-radius: 12px;
+	border-bottom-right-radius: 12px;
+	box-shadow: 0 0 10px 0 ;
 }
 
 .navbar{
@@ -15,7 +25,8 @@ header{
 
 .navbar-dark .navbar-nav .nav-link{
 	text-align: center;
-	color: white;
+	/* color: white; */
+	
 }
 
 

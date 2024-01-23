@@ -4,7 +4,7 @@ import './style.css'
 function Footer() {
 	return (
 		<footer>
-			<p>&copy; Todos os direitos reservados Ednaldo Cavalcante</p> 
+			<p>&copy; All rights Reserved Ednaldo Cavalcante</p> 
 		</footer>
 	)
 }
